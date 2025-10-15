@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Drinking Habit Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4CAF50, #81C784);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input[type='number'] {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4285F4;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ae8;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+        li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Water Drinking Habit Tracker</h1>
+        <input type="number" id="waterAmount" placeholder="Enter amount in ml" />
+        <button id="addWater">Add Water</button>
+        <ul id="waterList"></ul>
+    </div>
+    <script>
+        const waterAmountInput = document.getElementById('waterAmount');
+        const addWaterButton = document.getElementById('addWater');
+        const waterList = document.getElementById('waterList');
+
+        addWaterButton.addEventListener('click', () => {
+            const amount = waterAmountInput.value;
+            if (amount) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Added ${amount} ml of water.`;
+                waterList.appendChild(listItem);
+                waterAmountInput.value = '';
+            } else {
+                alert('Please enter a valid amount.');
+            }
+        });
+    </script>
+</body>
+</html>
